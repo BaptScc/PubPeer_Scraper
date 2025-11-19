@@ -1,20 +1,18 @@
 from PubPeer_Scraper.function import process_pmid_list
-from PubPeer_Scraper.driver import get_driver
-
-driver=get_driver()
-
 import pandas as pd
 
-# pmid_list = ["37781291", "26808342", "25412939"] 
+df = pd.read_excel("./PubPeer_Scraper/test_set.xlsx") #the fonctionnality of this pipeline has been assessed for this short dataset
 
-df = pd.read_excel("./integrity_experts.xlsx")
+result = process_pmid_list(df['PMID'],
+                           get_comment=True, #Extracts the content of the comments
+                           ### IMPORTANT: please request access to https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct before turning sentiment analysis on. Then pass your HF token to your working environment.
+                           sentiment_analysis=False, #use LLM to analyse the nature of the comments (Commenting the study, Discussion the methods, Reporting incoherences...)
+                           ### IMPORTANT: parallelism will be automatically disabled when performing sentiment analysis.
+                           parallelise=False, #speed up the process (true for total number of requests >50) #Parallelism is silent.
+                           num_workers=4) #number of cores that will be used for multiparallelism (depends on your machine). Stay in the range 2-8 for PubPeer.
 
-df = df[-100:]
+df['Number of comments'] = [r[0] for r in result]
+df['Comments'] = [r[1] for r in result]
+df['Type of comments'] = [r[2] for r in result]
 
-result = process_pmid_list(df['PMID'], parallelise=True, num_workers=4)
-
-df['has_pub_peer_comment'] = result
-df[df['has_pub_peer_comment'] > 0]
-
-driver.quit()
-
+df.to_excel("./PubPeer_Scraper/test_set.xlsx", index=False)
