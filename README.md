@@ -21,9 +21,13 @@ cd PubPeer_Scraper
 
 Open the ***main.py*** script and replace the example dataset by your dataset
 
+<br>
+
 ```bash
 df = pd.read_excel("./your_dataset.xlsx")
 ```
+
+<br>
 
 Then make sure that your PMIDs are stored in a "PMID" column and in the following types: "int64" or "float64".
 
@@ -36,14 +40,22 @@ Then make sure that your PMIDs are stored in a "PMID" column and in the followin
 This tool can return up to 3 different results:
 - The number of PubPeer comments associated with a PMID (base)
 - The content of the comments associated with a PMID
+
+<br>
+  
 ```bash
 get_comment=True
 ```
+
+<br>
+
 - The type of comment associated with a PMID - AI-generated descriptor
+
+<br>
+
 ```bash
 sentiment_analysis=True
 ```
 <br>
 
-In order 
   
