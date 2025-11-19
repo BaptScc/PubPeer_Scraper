@@ -44,7 +44,7 @@ This tool can return up to 3 different results:
 <br>
   
 ```bash
-get_comment=True
+get_comment=True #or get_comment=False
 ```
 
 <br>
@@ -54,7 +54,7 @@ get_comment=True
 <br>
 
 ```bash
-sentiment_analysis=True
+sentiment_analysis=True #or sentiment_analysis=False
 ```
 <br>
 
@@ -70,8 +70,8 @@ Multiprocessing was added to the main function to enable faster retrieval of the
 <br>
 
 ```bash
-parallelise=False
-num_workers=4
+parallelise=True #or parallelise=False (default)
+num_workers=4 #recommended
 ```
 <br>
 
