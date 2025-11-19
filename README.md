@@ -1,5 +1,5 @@
 # PubPeer Scraper: a simple extraction tool
-
+---
 <br>
 
 This Git Hub repository was made to quickly retrieve and analyse PubPeer comments linked to a list of PMIDs.
@@ -34,11 +34,12 @@ Then make sure that your PMIDs are stored in a "PMID" column and in the followin
 <br>
 
 ### What are the different options for?
-
+---
 <br>
 
 This tool can return up to 3 different results:
 - The number of PubPeer comments associated with a PMID (base)
+<br>
 - The content of the comments associated with a PMID
 
 <br>
@@ -58,4 +59,24 @@ sentiment_analysis=True
 ```
 <br>
 
-  
+You can switch these options on depending on what you need. Please note that ***sentiment_analysis*** can't be used with ***get_comment*** turned off. Turning the ***sentiment_analysis*** on will trigger the download of Llama-3.1-8B from Hugging Face. Please make sure that you have requested access to https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct and passed your HF token on your machine beforehand.
+
+<br>
+### How to parallelise?
+---
+<br>
+
+Multiprocessing was added to the main function to enable faster retrieval of the PubPeer comments (up to 400 per minute). The number of workers can be adapted (2 to 8). Please note that parallelism will be automatically disabled when performing sentiment analysis.
+
+<br>
+
+```bash
+parallelise=False
+num_workers=4
+```
+<br>
+
+---
+<br>
+
+If any question please reach out to baptiste.scancar@agrocampus-ouest.fr
