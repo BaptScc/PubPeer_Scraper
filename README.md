@@ -4,7 +4,7 @@
 
 This Git Hub repository was made to quickly retrieve and analyse PubPeer comments linked to a list of PMIDs.
 
-Start by cloning this repository in your working environment. Please note that high performance computing is preferable to run this code given ressources needed to run some cells.
+Start by cloning this repository in your working environment. Please note that high performance computing is preferable to use parallelism.
 
 <br>
 
