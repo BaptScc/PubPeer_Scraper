@@ -39,7 +39,6 @@ Then make sure that your PMIDs are stored in a "PMID" column and in the followin
 
 This tool can return up to 3 different results:
 - The number of PubPeer comments associated with a PMID (base)
-<br>
 - The content of the comments associated with a PMID
 
 <br>
