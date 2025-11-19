@@ -61,6 +61,7 @@ sentiment_analysis=True #or sentiment_analysis=False
 You can switch these options on depending on what you need. Please note that ***sentiment_analysis*** can't be used with ***get_comment*** turned off. Turning the ***sentiment_analysis*** on will trigger the download of Llama-3.1-8B from Hugging Face. Please make sure that you have requested access to https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct and passed your HF token on your machine beforehand.
 
 <br>
+
 ### How to parallelise?
 ---
 <br>
