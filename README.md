@@ -29,7 +29,22 @@ df = pd.read_excel("./your_dataset.xlsx")
 
 <br>
 
-Then make sure that your PMIDs are stored in a "PMID" column and in the following types: "int64" or "float64".
+Then make sure that your PMIDs are stored in a "PMID" column and in the following types: "int64" or "float64". Then run (these settings will run smoothly on most machines):
+
+<br>
+
+```bash
+result = process_pmid_list(df['PMID'],
+                           get_comment=True,
+                           sentiment_analysis=False,
+                           parallelise=False)
+
+#Run the following to merge the results with you data
+df['Number of comments'] = [r[0] for r in result]
+df['Comments'] = [r[1] for r in result]
+df['Type of comments'] = [r[2] for r in result]
+```
+
 
 <br>
 
