@@ -29,7 +29,7 @@ df = pd.read_excel("./your_dataset.xlsx")
 
 <br>
 
-Then make sure that your PMIDs are stored in a "PMID" column and in the following types: "int64" or "float64". Then run (these settings will run smoothly on most machines):
+Make sure that your PMIDs are stored in a "PMID" column. Then run (these settings will run smoothly on most machines):
 
 <br>
 
